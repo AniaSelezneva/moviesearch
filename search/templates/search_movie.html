@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  {% if movies %}
+    <h2>Search results:</h2>
+    <ul>
+    {% for movie in movies %}
+      <li><a href="{% url 'movie_detail' movie.movieID %}">{{ movie.title }}</a></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}
