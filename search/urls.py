@@ -19,6 +19,7 @@ from search import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('search/', views.search_movie, name='search'),
+    path('', views.search_movie, name='search'),
+    # path('search/', views.search_movie, name='search'),
     path('movies/<str:imdb_id>/', views.movie_detail, name='movie_detail'),
 ]
